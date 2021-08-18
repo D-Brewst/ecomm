@@ -1,0 +1,38 @@
+.navigation{
+    display: flex;
+    padding: 1.6rem;
+    font-size: 1.6rem;
+
+    a{
+        text-decoration: none;
+        color:black;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+    &__item{
+        display: inline-block;
+        margin: 0 1.6rem;
+    }
+    &__list{
+        margin-top: 0;
+        list-style-type: none;
+        margin-left: auto;
+    }
+    &__cart{
+        width: 25px;
+    }
+    &__cartcontainer{
+        cursor: pointer;
+    }
+    &__cartnumber{
+        margin-left: -8px;
+        background-color: red;
+        padding: 2px 5px;
+        color:white;
+        border-radius: 100%;
+        font-size: 1rem;
+    }
+
+}
