@@ -203,3 +203,42 @@ body {
   cursor: pointer;
   border: none;
   border-radius: 5px; }
+
+.cart {
+  text-align: center;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  height: 60%;
+  width: 60%;
+  background-color: rgba(255, 0, 0, 0.3);
+  color: black;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  z-index: 100;
+  border: solid;
+  overflow-y: auto;
+  -webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(25px); }
+  .cart__close {
+    position: absolute;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    top: 2%;
+    right: 2%; }
+
+.cart-item {
+  border: solid;
+  margin: 2px 5px 2px 5px; }
+  .cart-item__img {
+    width: 75px;
+    height: 75px;
+    margin: auto; }
+  .cart-item__icon {
+    width: 25px;
+    padding: 2.5px;
+    cursor: pointer; }
+  .cart-item h5 {
+    margin-bottom: 5px;
+    text-decoration: underline; }

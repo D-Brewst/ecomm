@@ -1,0 +1,82 @@
+import React, {useEffect} from 'react';
+import Cart from '../assets/images/cart.png';
+import { useStoreContext } from '../utils/GlobalState';
+import { TOGGLE_CART } from '../utils/actions';
+import close from "../assets/images/close.png";
+import CartItem from "./Cartitem";
+
+const Shoppingcart = () => {
+    const [state, dispatch] = useStoreContext();
+
+    useEffect(() => {
+        document.body.addEventListener('click', closeCart);
+    })
+    
+    function calculateTotal() {
+        let sum = 0;
+        state.cart.forEach((item) => {
+          sum += item.price * item.quantity;
+        });
+        return sum.toFixed(2);
+      } 
+
+    function toggleCart() {
+        dispatch({ type: TOGGLE_CART });
+      }
+
+    function closeCart() {
+        if(state.cartOpen === true){
+            toggleCart();
+        }
+        return;
+    }
+
+    if (!state.cartOpen) {
+        return (
+        <div className='navigation__cartcontainer' onClick={toggleCart}>
+            <img className='navigation__cart' src={Cart} alt='cart'/>
+            <span className='navigation__cartnumber'>{state.cart.length}</span>
+        </div> 
+        );
+      }
+    
+      return (
+        <div className="cart">
+            <div onClick={toggleCart}>
+                <img className="cart__close" src={close} alt='close cart modal'/>
+            </div>
+            <h2>Shopping Cart</h2>
+            {state.cart.length ? (
+                <div>
+                    {state.cart.map((product) => (
+                        <CartItem 
+                            key={product._id}
+                            _id={product._id}
+                            image={product.image}
+                            name={product.name}
+                            price={product.price}
+                            quantity={product.quantity}
+                            inventory={product.inventory}
+                        />
+                    ))}
+            
+                    <div className="flex-row space-between">
+                        <strong>Total: ${calculateTotal()}</strong>
+                        <button>Begin Checkout</button>
+                    </div>
+                </div>
+            ) : (
+            <div>
+                <h3>
+                <span role="img" aria-label="shocked">
+                    😱
+                </span>
+                You haven't added anything to your cart yet!
+                </h3>
+            </div>
+            )}
+        </div>
+      );
+}
+
+export default Shoppingcart;

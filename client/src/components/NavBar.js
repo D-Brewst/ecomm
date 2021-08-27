@@ -1,13 +1,7 @@
-import React, {useEffect} from 'react';
-import Cart from '../assets/images/cart.png';
-import { useStoreContext } from '../utils/GlobalState';
+import React from 'react';
+import Shoppingcart from './Shoppingcart';
 
 const NavBar = () => {
-    const [state, dispatch] = useStoreContext();
-
-    useEffect(() => {
-        console.log(state.cart.length)
-    })
 
     return (
         <nav className='navigation'>
@@ -23,10 +17,7 @@ const NavBar = () => {
                     <a href='/login'>Log In</a>
                 </li>
             </ul>
-            <div className='navigation__cartcontainer'>
-                <img className='navigation__cart' src={Cart} alt='cart'/>
-                <span className='navigation__cartnumber'>{state.cart.length}</span>
-            </div>    
+            <Shoppingcart/>     
         </nav>
     )
 }
