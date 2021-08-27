@@ -1,6 +1,6 @@
 .product{
     &__container{
-        height: 25vh;
+        height: 250px;
     }
     &__image{
         width:100%;
@@ -37,6 +37,15 @@
         border: none;
         cursor: pointer;
         border-radius: 5px;
+    }
+    &__list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        div{
+            flex: 0 0 250px;
+            margin: 2rem;
+        }
     }
 
 }

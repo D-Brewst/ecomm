@@ -1,4 +1,3 @@
-const { Decimal128 } = require("bson");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -11,7 +10,7 @@ const ProductSchema = new Schema({
   },
 
   price: {
-    type: Decimal128,
+    type: Number,
     trim: true,
     required: "Please enter cash amount",
     unique: false

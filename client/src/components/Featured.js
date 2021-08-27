@@ -23,14 +23,15 @@ const Featured = () => {
         <div>
             <h2 className="product__featured">Featured Collection</h2>
             {featuredArr.length ? (
-                <div className="row">
+                <div className="product__list">
                     {featuredArr.map((product) => (
                         <Product
                         key={product._id}
                         _id={product._id}
                         image={product.image}
                         name={product.name}
-                        price={product.price.$numberDecimal}
+                        price={product.price}
+                        description={product.description}
                         quantity={product.quantity}
                         />
                     ))}

@@ -55,10 +55,12 @@
 .jumbotron {
   width: 100vw;
   height: 90vh;
+  max-width: 100%;
   position: relative; }
   .jumbotron__header {
+    text-align: center;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     font-size: 5rem;
     transform: translate(-50%, -50%);
@@ -120,7 +122,7 @@ body {
   cursor: pointer; }
 
 .product__container {
-  height: 25vh; }
+  height: 250px; }
 
 .product__image {
   width: 100%;
@@ -157,7 +159,47 @@ body {
   cursor: pointer;
   border-radius: 5px; }
 
+.product__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+  .product__list div {
+    flex: 0 0 250px;
+    margin: 2rem; }
+
 .footer {
   margin: 5rem auto;
   text-align: center;
   font-size: 1.2rem; }
+
+.detail__section {
+  margin-top: 100px; }
+
+.detail__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; }
+
+.detail__name {
+  font-size: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem; }
+
+.detail__price {
+  font-size: 2rem;
+  padding-bottom: 2rem; }
+
+.detail__description {
+  font-size: 1.6rem;
+  padding-bottom: 2rem; }
+
+.detail__btn {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 12px 24px;
+  font-size: 1.6rem;
+  color: white;
+  background-color: black;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px; }

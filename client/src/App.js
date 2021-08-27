@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import Details from "./pages/Details";
 import {
   BrowserRouter as Router,
   Route
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route exact path='/products'>
           <Products/>
+        </Route>
+        <Route exact path='/products/:id'>
+          <Details/>
         </Route>
         <Route exact path='/login'>
           <Login/>
