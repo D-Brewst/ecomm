@@ -8,6 +8,8 @@ import CartItem from "./Cartitem";
 const Shoppingcart = () => {
     const [state, dispatch] = useStoreContext();
 
+    const {cart} = state;
+
     useEffect(() => {
         var back = document.getElementById('main');
         function toggleCart() {
@@ -27,10 +29,16 @@ const Shoppingcart = () => {
 
     var back = document.getElementById('main');
 
+    const saveCart = (cart) => {
+        const goods = cart.length > 0 ? cart : [];
+        localStorage.setItem('cart', JSON.stringify(goods));
+    }
+
     function closeCart() {
         if(state.cartOpen === true){
             toggleCart();
             back.style.filter = "blur(0px)";
+            saveCart(cart);
         }
         return;
     }
@@ -38,7 +46,7 @@ const Shoppingcart = () => {
     function toggleCart() {
         dispatch({ type: TOGGLE_CART });
         back.style.filter = "blur(20px)";
-      }
+    }
     
     function calculateTotal() {
         let sum = 0;

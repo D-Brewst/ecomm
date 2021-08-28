@@ -13,6 +13,11 @@ const CartItem = (props) => {
     const {name, price, image, _id, description, quantity, inventory} = props;
     const product = {name, price, image, _id, description, quantity, inventory};
 
+    const saveCart = (cart) => {
+        const goods = cart.length > 0 ? cart : [];
+        localStorage.setItem('cart', JSON.stringify(goods));
+    }
+
     const increaseQuantity = () => {
         const itemInCart = cart.find((cartItem) => cartItem._id === product._id);
         console.log(itemInCart);
@@ -23,6 +28,7 @@ const CartItem = (props) => {
                 product: { ...itemInCart, quantity: itemInCart.quantity + 1 }
             });
         }
+        saveCart(product);
     };
     
     const decreaseQuantity = () => {
@@ -35,6 +41,7 @@ const CartItem = (props) => {
                 product: { ...itemInCart, quantity: itemInCart.quantity - 1 }
             });
         }
+        saveCart(product)
     };
 
     const removeFromCart = () => {
@@ -42,6 +49,7 @@ const CartItem = (props) => {
             type: REMOVE_FROM_CART,
             _id: product._id
         });
+        saveCart(cart)
     }
     
 

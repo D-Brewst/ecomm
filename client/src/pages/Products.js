@@ -3,9 +3,12 @@ import Product from '../components/Product';
 import API from '../utils/API';
 import { useStoreContext } from '../utils/GlobalState';
 import { UPDATE_PRODUCTS } from '../utils/actions';
+import Categories from '../components/Categories';
 
 const Products = () => {
     const [state, dispatch] = useStoreContext();
+
+    const {currentCategory} = state;
 
     useEffect(() => {
         API.getFeatured().then((res) => {
@@ -17,12 +20,25 @@ const Products = () => {
         });
     }, [dispatch])
 
+    function filterProducts() {
+        if (!currentCategory) {
+          return state.products;
+        }
+    
+        const list = state.products.filter(
+          (product) => product.category === currentCategory
+        );
+        console.log(list);
+        return(list);
+      }
+
     return (
         <div>
             <h2 className="product__featured">Products</h2>
+            <Categories />
             {state.products.length ? (
                 <div className="product__list">
-                    {state.products.map((product) => (
+                    {filterProducts().map((product) => (
                         <Product
                         key={product._id}
                         _id={product._id}

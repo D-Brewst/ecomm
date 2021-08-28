@@ -46,7 +46,6 @@ export const reducer = (state, action) => {
       let newState = state.cart.filter(product => {
         return product._id !== action._id;
       });
-
       return {
         ...state,
         cartOpen: newState.length > 0,

@@ -16,4 +16,17 @@ module.exports = {
         }
     },
 
+    getCategories: async (req, res) => {
+        try{
+            const categories = await db.Category.find({});
+            console.log(categories);
+            res.status(200).json({
+              categories
+            });
+        }
+        catch (error){
+            return res.status(500).send(error.message);
+        }
+      },
+
 }

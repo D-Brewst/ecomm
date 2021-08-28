@@ -4,10 +4,12 @@ import { useProductReducer } from './reducers'
 const StoreContext = createContext();
 const { Provider } = StoreContext;
 
+const storedCart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+
 const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useProductReducer({
     products: [],
-    cart: [],
+    cart: storedCart,
     cartOpen: false,
     categories: [],
     currentCategory: '',

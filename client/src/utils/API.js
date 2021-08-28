@@ -9,5 +9,15 @@ export default {
         catch (error) {
             console.log(error.message);
         }
+    },
+
+    getCategories: async () => {
+        try{
+            const {data} = await axios.get("/categories");
+            return data;
+        }
+        catch (error) {
+            console.log(error.message);
+        }
     }
 }

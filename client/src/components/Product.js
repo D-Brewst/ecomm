@@ -13,6 +13,11 @@ const Product = (props) => {
     const {name, price, image, _id, description, quantity, inventory} = props;
     const product = {name, price, image, _id, description, quantity, inventory};
 
+    const saveCart = (cart) => {
+        const goods = cart.length > 0 ? cart : [];
+        localStorage.setItem('cart', JSON.stringify(goods));
+    }
+
     const addToCart = () => {
         const itemInCart = cart.find((cartItem) => cartItem._id === product._id);
         console.log(itemInCart);
@@ -22,13 +27,13 @@ const Product = (props) => {
             _id: product._id,
             product: { ...itemInCart, quantity: itemInCart.quantity + 1 }
         });
-          console.log(cart);
+          saveCart(cart);
         } else {
           dispatch({
             type: ADD_TO_CART,
             product: { ...product, quantity: 1 },
           });
-          console.log(cart);
+          saveCart(cart);
         }
       };
 
