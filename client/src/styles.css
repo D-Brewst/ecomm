@@ -211,15 +211,13 @@ body {
   left: 50%;
   height: 60%;
   width: 60%;
-  background-color: rgba(255, 0, 0, 0.3);
+  background-color: white;
   color: black;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   z-index: 100;
   border: solid;
-  overflow-y: auto;
-  -webkit-backdrop-filter: blur(25px);
-  backdrop-filter: blur(25px); }
+  overflow-y: auto; }
   .cart__close {
     position: absolute;
     cursor: pointer;
@@ -227,6 +225,15 @@ body {
     width: 15px;
     top: 2%;
     right: 2%; }
+  .cart__btn {
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px 0; }
 
 .cart-item {
   border: solid;

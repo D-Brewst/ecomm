@@ -9,8 +9,36 @@ const Shoppingcart = () => {
     const [state, dispatch] = useStoreContext();
 
     useEffect(() => {
-        document.body.addEventListener('click', closeCart);
-    })
+        var back = document.getElementById('main');
+        function toggleCart() {
+            dispatch({ type: TOGGLE_CART });
+            back.style.filter = "blur(20px)";
+          }
+
+        function closeCart() {
+            if(state.cartOpen === true){
+                toggleCart();
+                back.style.filter = "blur(0px)";
+            }
+            return;
+        }
+        back.addEventListener('click', closeCart);
+    }, [dispatch, state.cartOpen])
+
+    var back = document.getElementById('main');
+
+    function closeCart() {
+        if(state.cartOpen === true){
+            toggleCart();
+            back.style.filter = "blur(0px)";
+        }
+        return;
+    }
+
+    function toggleCart() {
+        dispatch({ type: TOGGLE_CART });
+        back.style.filter = "blur(20px)";
+      }
     
     function calculateTotal() {
         let sum = 0;
@@ -19,17 +47,6 @@ const Shoppingcart = () => {
         });
         return sum.toFixed(2);
       } 
-
-    function toggleCart() {
-        dispatch({ type: TOGGLE_CART });
-      }
-
-    function closeCart() {
-        if(state.cartOpen === true){
-            toggleCart();
-        }
-        return;
-    }
 
     if (!state.cartOpen) {
         return (
@@ -42,7 +59,7 @@ const Shoppingcart = () => {
     
       return (
         <div className="cart">
-            <div onClick={toggleCart}>
+            <div onClick={closeCart}>
                 <img className="cart__close" src={close} alt='close cart modal'/>
             </div>
             <h2>Shopping Cart</h2>
@@ -60,9 +77,9 @@ const Shoppingcart = () => {
                         />
                     ))}
             
-                    <div className="flex-row space-between">
-                        <strong>Total: ${calculateTotal()}</strong>
-                        <button>Begin Checkout</button>
+                    <div>
+                        <p><strong>Total: ${calculateTotal()}</strong></p>
+                        <button className="cart__btn">Begin Checkout</button>
                     </div>
                 </div>
             ) : (

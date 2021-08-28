@@ -15,23 +15,25 @@ import { StoreProvider } from './utils/GlobalState';
 function App() {
   return (
     <Router>
-      <StoreProvider>
+      <StoreProvider> 
         <NavBar/>
-        <Route exact path='/'>
-          <Home/>
-        </Route>
-        <Route exact path='/products'>
-          <Products/>
-        </Route>
-        <Route exact path='/products/:id'>
-          <Details/>
-        </Route>
-        <Route exact path='/login'>
-          <Login/>
-        </Route>
-        <Route exact path='/signup'>
-          <Signup/>
-        </Route>
+        <div id="main">
+          <Route exact path='/'>
+            <Home/>
+          </Route>
+          <Route exact path='/products'>
+            <Products/>
+          </Route>
+          <Route exact path='/products/:id'>
+            <Details/>
+          </Route>
+          <Route exact path='/login'>
+            <Login/>
+          </Route>
+          <Route exact path='/signup'>
+            <Signup/>
+          </Route>
+        </div>
         <Footer />
       </StoreProvider>
     </Router>
