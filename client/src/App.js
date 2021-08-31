@@ -6,6 +6,9 @@ import Signup from "./pages/Signup";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Details from "./pages/Details";
+import Checkout from "./pages/Checkout";
+import Success from "./pages/Success";
+import Canceled from "./pages/Canceled";
 import {
   BrowserRouter as Router,
   Route
@@ -13,6 +16,7 @@ import {
 import { StoreProvider } from './utils/GlobalState';
 
 function App() {
+
   return (
     <Router>
       <StoreProvider> 
@@ -32,6 +36,15 @@ function App() {
           </Route>
           <Route exact path='/signup'>
             <Signup/>
+          </Route>
+          <Route exact path='/checkout'>
+            <Checkout/>
+          </Route>
+          <Route exact path='/success'>
+            <Success/>
+          </Route>
+          <Route exact path='/canceled'>
+            <Canceled/>
           </Route>
         </div>
         <Footer />

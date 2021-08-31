@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const PORT = process.env.PORT || 7000;
 const app = express();
 const cors = require("cors");
+require('dotenv').config()
 
 //DB setup
 const mongoose = require("mongoose")

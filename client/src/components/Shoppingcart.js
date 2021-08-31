@@ -1,25 +1,27 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useCallback} from 'react';
 import Cart from '../assets/images/cart.png';
 import { useStoreContext } from '../utils/GlobalState';
 import { TOGGLE_CART } from '../utils/actions';
 import close from "../assets/images/close.png";
 import CartItem from "./Cartitem";
+import { useHistory } from "react-router-dom";
 
 const Shoppingcart = () => {
     const [state, dispatch] = useStoreContext();
+
+    const history = useHistory();
 
     const {cart} = state;
 
     useEffect(() => {
         var back = document.getElementById('main');
-        function toggleCart() {
-            dispatch({ type: TOGGLE_CART });
-            back.style.filter = "blur(20px)";
-          }
 
         function closeCart() {
             if(state.cartOpen === true){
-                toggleCart();
+                dispatch({ 
+                    type: TOGGLE_CART,
+                    cartOpen: false
+                 });
                 back.style.filter = "blur(0px)";
             }
             return;
@@ -29,22 +31,44 @@ const Shoppingcart = () => {
 
     var back = document.getElementById('main');
 
-    const saveCart = (cart) => {
+    // back.addEventListener('click', closeCart);
+
+    const saveCart = () => {
         const goods = cart.length > 0 ? cart : [];
         localStorage.setItem('cart', JSON.stringify(goods));
     }
 
+    const beginCheckout = () => {
+        closeCart();
+        history.push("/checkout");
+    }
+
     function closeCart() {
         if(state.cartOpen === true){
-            toggleCart();
+            dispatch({ 
+                type: TOGGLE_CART,
+                cartOpen: false
+             });
             back.style.filter = "blur(0px)";
-            saveCart(cart);
+            saveCart();
         }
         return;
     }
 
+    // const closeCart = useCallback(() => {
+    //     if(state.cartOpen === true){
+    //         dispatch({ type: TOGGLE_CART });
+    //         back.style.filter = "blur(0px)";
+    //         saveCart();
+    //     }
+    //     return;
+    //   }, [dispatch, back.style, saveCart, state.cartOpen])
+
     function toggleCart() {
-        dispatch({ type: TOGGLE_CART });
+        dispatch({ 
+            type: TOGGLE_CART,
+            cartOpen: true
+         });
         back.style.filter = "blur(20px)";
     }
     
@@ -56,7 +80,7 @@ const Shoppingcart = () => {
         return sum.toFixed(2);
       } 
 
-    if (!state.cartOpen) {
+    if (state.cartOpen === false) {
         return (
         <div className='navigation__cartcontainer' onClick={toggleCart}>
             <img className='navigation__cart' src={Cart} alt='cart'/>
@@ -87,7 +111,7 @@ const Shoppingcart = () => {
             
                     <div>
                         <p><strong>Total: ${calculateTotal()}</strong></p>
-                        <button className="cart__btn">Begin Checkout</button>
+                        <button onClick={beginCheckout} className="cart__btn">Begin Checkout</button>
                     </div>
                 </div>
             ) : (
