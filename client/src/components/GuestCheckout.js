@@ -48,7 +48,6 @@ const GuestCheckout = () => {
                         placeholder='Email'
                         ref={logemailRef}
                         aria-disabled="false"
-                        className='nomad-input'
                     />
                 </div>
                 <div className='submit-btn'>

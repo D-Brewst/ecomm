@@ -4,6 +4,7 @@ const Products = require("../controllers/productController");
 const Category = require("../controllers/categoryController");
 const passport = require("passport");
 const stripeAPI = require("../controllers/checkoutController");
+const Payment = require("../controllers/paymentIntentController");
 
 const requireLogin = passport.authenticate("local", {session: false});
 const requireAuth = passport.authenticate("jwt", {session: false});
@@ -19,4 +20,5 @@ module.exports = function(app) {
     app.post("/addcategory", Category.addCategory);
     app.get("/categories", Category.getCategories);
     app.post("/checkout", stripeAPI.checkoutSession);
+    app.post("/payment", Payment.paymentIntent);
 }
