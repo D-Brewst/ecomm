@@ -1,7 +1,23 @@
 import React from 'react';
 import Shoppingcart from './Shoppingcart';
+import { useStoreContext } from '../utils/GlobalState';
+import {LOGOUT} from '../utils/actions';
+import {useHistory} from 'react-router-dom';
 
 const NavBar = () => {
+    const [state, dispatch] = useStoreContext();
+
+    const {user} = state;
+
+    const history = useHistory();
+
+    function logOut() {
+        localStorage.removeItem("authuser");
+        dispatch({
+          type: LOGOUT,
+        });
+        history.push('/logout');
+    }
 
     return (
         <nav className='navigation'>
@@ -16,6 +32,10 @@ const NavBar = () => {
                 <li className='navigation__item'>
                     <a href='/login'>Log In</a>
                 </li>
+                {user.token && <li className='navigation__item'>
+                    <button onClick={logOut}>Log Out</button>
+                </li>}
+                
             </ul>
             <Shoppingcart/>     
         </nav>

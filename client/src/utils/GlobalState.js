@@ -13,6 +13,7 @@ const StoreProvider = ({ value = [], ...props }) => {
     cartOpen: false,
     categories: [],
     currentCategory: '',
+    user: JSON.parse(localStorage.getItem("authuser")) || {}
   });
 
   return <Provider value={[state, dispatch]} {...props} />;

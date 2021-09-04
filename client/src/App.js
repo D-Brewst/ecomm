@@ -9,6 +9,7 @@ import Details from "./pages/Details";
 import Checkout from "./pages/Checkout";
 import Success from "./pages/Success";
 import Canceled from "./pages/Canceled";
+import Logout from "./pages/Logout";
 import {
   BrowserRouter as Router,
   Route
@@ -45,6 +46,9 @@ function App() {
           </Route>
           <Route exact path='/canceled'>
             <Canceled/>
+          </Route>
+          <Route exact path='/logout'>
+            <Logout/>
           </Route>
         </div>
         <Footer />
