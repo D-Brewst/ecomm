@@ -25,19 +25,26 @@ const Categories = () => {
           });
     }
 
+    const word = (word) => {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+    }
+
     return (
         <div>
-            <h2>Choose a Category:</h2>
-            {categories.map((item) => (
-                <button
-                key={item._id}
-                onClick={() => {
-                    handleClick(item._id);
-                }}
-                >
-                {item.name}
-                </button>
-            ))}
+            <h2 className="category__header">Filter By Category:</h2>
+            <div className="category__btndiv">
+                {categories.map((item) => (
+                    <button
+                    className="category__button"
+                    key={item._id}
+                    onClick={() => {
+                        handleClick(item._id);
+                    }}
+                    >
+                    {word(item.name)}
+                    </button>
+                ))}
+            </div>
         </div>
     )
 }

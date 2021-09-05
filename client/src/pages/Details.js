@@ -61,7 +61,7 @@ function Detail() {
   };
 
   const cartIndex = cart.findIndex(item => item._id === id);
-    console.log(cartIndex);
+  console.log(cartIndex);
 
   return (
     <>
@@ -91,7 +91,7 @@ function Detail() {
                     Remove from Cart
                 </button>
                 <button className="detail__btn">Continue to Checkout</button>
-                {cart.length ? <p>You have {cart[cartIndex].quantity} of this item in your cart</p> :
+                {cart[cartIndex] ? <p>You have {cart[cartIndex].quantity} of this item in your cart</p> :
                 <p>You have 0 of this item in your cart</p>}     
             </div>
           

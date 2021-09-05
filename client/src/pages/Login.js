@@ -13,7 +13,7 @@ const Login = () => {
     //putting in local storage AND state
     const doLogin = async () => {
         //login user and get token back
-        const { data } = await axios.post("/auth/login", {
+        const { data } = await axios.post("/login", {
             email: emailRef.current.value,
             password: passwordRef.current.value,
         });
@@ -29,7 +29,7 @@ const Login = () => {
         });
 
         // redirecting user to the members page
-        const redirect = () => history.push("/members");
+        const redirect = () => history.push("/products");
         redirect();
     };
 
@@ -38,47 +38,35 @@ const Login = () => {
         doLogin();
     };
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-            <p>Login</p>
+        <div className="login">
+            <form className="login__form" onSubmit={handleSubmit}>
+            <h2 className="login__header">Login</h2>
             <div>
-              <div>
+              <div className="login__input">
                 <i data-test="fa"></i>
                 <input
-                  data-test="input"
-                  type="email"
-                  aria-disabled="false"
-                  ref={emailRef}
+                    className="login__text"
+                    data-test="input"
+                    type="email"
+                    aria-disabled="false"
+                    ref={emailRef}
+                    placeholder="Email"
                 />
-                <label
-                  data-error="wrong"
-                  data-success="right"
-                  id=""
-                  aria-labelledby=""
-                >
-                  Type your email
-                </label>
               </div>
-              <div>
+              <div className="login__input">
                 <i data-test="fa"></i>
                 <input
-                  data-test="input"
-                  type="password"
-                  aria-disabled="false"
-                  ref={passwordRef}
+                    className="login__text"
+                    data-test="input"
+                    type="password"
+                    aria-disabled="false"
+                    ref={passwordRef}
+                    placeholder="Password"
                 />
-                <label
-                  data-error=""
-                  data-success=""
-                  id=""
-                  aria-labelledby=""
-                >
-                  Type your password
-                </label>
               </div>
             </div>
             <div>
-              <button type="submit">Login</button>
+              <button className="login__btn" type="submit">Login</button>
             </div>
           </form>
         </div>

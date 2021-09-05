@@ -60,75 +60,52 @@ const Signup = () => {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSignup}>
-            <p className="h5 text-center mb-4">Sign up</p>
-            <div className="grey-text">
-              <div className="md-form form-group">
-                <i data-test="fa" className="fa fa-user prefix"></i>
+        <div className="signup">
+            <form className="signup__form" onSubmit={handleSignup}>
+            <h2 className="signup__header">Sign up</h2>
+            <div>
+              <div className="signup__input">
+                <i data-test="fa"></i>
                 <input
                   data-test="input"
                   type="text"
-                  className="form-control validate"
+                  className="signup__text"
                   aria-disabled="false"
                   ref={usernameRef}
                   required
+                  placeholder="username"
                 />
-                <label
-                  className="active"
-                  data-error="wrong"
-                  data-success="right"
-                  id=""
-                  aria-labelledby=""
-                >
-                  Your username
-                </label>
               </div>
-              <div className="md-form form-group">
-                <i data-test="fa" className="fa fa-envelope prefix"></i>
+              <div className="signup__input">
+                <i data-test="fa"></i>
                 <input
                   data-test="input"
                   type="email"
-                  className="form-control validate"
+                  className="signup__text"
                   aria-disabled="false"
                   ref={emailRef}
+                  placeholder="email"
                   required
                 />
-                <label
-                  className="active"
-                  data-error="wrong"
-                  data-success="right"
-                  id=""
-                  aria-labelledby=""
-                >
-                  Your email
-                </label>
               </div>
-              <div className="md-form form-group">
-                <i data-test="fa" className="fa fa-lock prefix"></i>
+              <div className="signup__input">
+                <i data-test="fa"></i>
                 <input
                   data-test="input"
                   type="password"
-                  className="form-control validate"
+                  className="signup__text"
                   aria-disabled="false"
                   ref={passwordRef}
+                  placeholder="password"
                   required
                 />
-                <label
-                  className="active"
-                  data-error=""
-                  data-success=""
-                  id=""
-                  aria-labelledby=""
-                >
-                  Your password
-                </label>
               </div>
             </div>
-            <div className="text-center">
+            <div>
               <button
                 color="primary"
                 type="submit"
+                className="signup__btn"
                 // onClick={() => history.push("/members")}
               >
                 Register

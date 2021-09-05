@@ -3,6 +3,7 @@ import Shoppingcart from './Shoppingcart';
 import { useStoreContext } from '../utils/GlobalState';
 import {LOGOUT} from '../utils/actions';
 import {useHistory} from 'react-router-dom';
+import ecommlogo from '../assets/images/ecommlogo.png';
 
 const NavBar = () => {
     const [state, dispatch] = useStoreContext();
@@ -21,7 +22,7 @@ const NavBar = () => {
 
     return (
         <nav className='navigation'>
-            <div className='navigation__logo'><a href='/'>E-COMM</a></div>
+            <div className='navigation__logo' onClick={() => history.push('/')}><img id='logoimg' src={ecommlogo} alt='logo'/></div>
             <ul className='navigation__list'>
                 <li className='navigation__item'>
                     <a href='/products'>Products</a>

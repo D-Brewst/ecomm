@@ -55,9 +55,9 @@ export const reducer = (state, action) => {
       };
 
     case CLEAR_CART:
+      localStorage.removeItem('cart');
       return {
         ...state,
-        cartOpen: false,
         cart: []
       };
 

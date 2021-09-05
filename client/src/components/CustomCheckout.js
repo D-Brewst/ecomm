@@ -66,30 +66,30 @@ const CustomCheckout = ({cart, shipping}) => {
     }
 
     return (
-        <div className="custom-checkout">
-            <from>
-                <h4>Payment Details</h4>
-                <div className='stripe-card'>
+        <div className="custom">
+            <from className="custom__form">
+                <h2 className="custom__header">Payment Details</h2>
+                <div className="custom__input">
                     <CardNumberElement 
-                    className='card-element'
+                    className="custom__text"
                     onChange={cardHandleChange}
                     />
                 </div>
-                <div className='stripe-card'>
+                <div className="custom__input">
                     <CardExpiryElement 
-                    className='card-element'
+                    className="custom__text"
                     onChange={cardHandleChange}
                     />
                 </div>
-                <div className='stripe-card'>
+                <div className="custom__input">
                     <CardCvcElement 
-                    className='card-element'
+                    className="custom__text"
                     onChange={cardHandleChange}
                     />
                 </div>
                 <button
                     disabled={processing}
-                    className='button is-black nomad-btn submit'
+                    className="custom__btn"
                     onClick={() => handleSubmit()}
                 >
                     { processing ? 'Processing' : 'Submit' }

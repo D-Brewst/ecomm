@@ -15,10 +15,12 @@ const Shipping = ({setShipping}) => {
     }
 
     return (
-        <div>
-            <form>
-                <div>
+        <div className="shipping">
+            <form className="shipping__form">
+            <h2 className="shipping__header">Shipping Details</h2>
+                <div className="shipping__input">
                     <input
+                        className="shipping__text"
                         type='name'
                         placeholder='Name'
                         ref={nameRef}
@@ -26,8 +28,9 @@ const Shipping = ({setShipping}) => {
                         required
                     />
                 </div>
-                <div>
+                <div className="shipping__input">
                     <input
+                        className="shipping__text"
                         type='email'
                         placeholder='Email'
                         ref={emailRef}
@@ -35,8 +38,9 @@ const Shipping = ({setShipping}) => {
                         required
                     />
                 </div>
-                <div>
+                <div className="shipping__input">
                     <input
+                        className="shipping__text"
                         type='address'
                         placeholder='Address'
                         ref={addressRef}
@@ -44,7 +48,7 @@ const Shipping = ({setShipping}) => {
                         required
                     />
                 </div>
-                <button type='submit' onClick={handleSubmit}>Confirm Shipping Details</button>
+                <button className="shipping__btn" type='submit' onClick={handleSubmit}>Confirm Shipping Details</button>
             </form>
         </div>
     )

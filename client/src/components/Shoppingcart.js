@@ -1,4 +1,4 @@
-import React, {useEffect, useCallback} from 'react';
+import React, {useEffect} from 'react';
 import Cart from '../assets/images/cart.png';
 import { useStoreContext } from '../utils/GlobalState';
 import { TOGGLE_CART } from '../utils/actions';
@@ -49,6 +49,8 @@ const Shoppingcart = () => {
                 type: TOGGLE_CART,
                 cartOpen: false
              });
+            var back = document.getElementById('main');
+
             back.style.filter = "blur(0px)";
             saveCart();
         }
@@ -65,6 +67,8 @@ const Shoppingcart = () => {
     //   }, [dispatch, back.style, saveCart, state.cartOpen])
 
     function toggleCart() {
+        var back = document.getElementById('main');
+
         dispatch({ 
             type: TOGGLE_CART,
             cartOpen: true
