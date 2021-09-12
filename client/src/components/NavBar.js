@@ -20,9 +20,19 @@ const NavBar = () => {
         history.push('/logout');
     }
 
+    const toggleLinks =  () => {
+        const links = document.getElementsByClassName("navigation__list")[0];
+        links.classList.toggle("active");
+    }
+
     return (
         <nav className='navigation'>
             <div className='navigation__logo' onClick={() => history.push('/')}><img id='logoimg' src={ecommlogo} alt='logo'/></div>
+            <div onClick={toggleLinks} className="navigation__toggle">
+                <span className="bar"></span>
+                <span className="bar"></span>
+                <span className="bar"></span>
+            </div>
             <ul className='navigation__list'>
                 <li className='navigation__item'>
                     <a href='/products'>Products</a>
@@ -35,8 +45,7 @@ const NavBar = () => {
                 </li>
                 {user.token && <li className='navigation__item'>
                     <button onClick={logOut}>Log Out</button>
-                </li>}
-                
+                </li>}   
             </ul>
             <Shoppingcart/>     
         </nav>

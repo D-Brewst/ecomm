@@ -27,7 +27,8 @@
 .navigation {
   display: flex;
   padding: 1.6rem;
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+  align-items: center; }
   .navigation a {
     text-decoration: none;
     color: black; }
@@ -37,6 +38,7 @@
     display: inline-block;
     margin: 0 1.6rem; }
   .navigation__list {
+    display: flex;
     margin-top: 0;
     list-style-type: none;
     margin-left: auto; }
@@ -51,6 +53,46 @@
     color: white;
     border-radius: 100%;
     font-size: 1rem; }
+  .navigation__toggle {
+    position: absolute;
+    top: 25.375px;
+    right: 1.6rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 30px;
+    height: 20px;
+    cursor: pointer; }
+  .navigation__toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: black;
+    border-radius: 10px; }
+
+@media (max-width: 768px) {
+  .navigation__toggle {
+    display: flex; }
+  .navigation__cartcontainer {
+    position: absolute;
+    top: 25.375px;
+    right: 5.8rem; }
+  .navigation {
+    flex-direction: column;
+    align-items: flex-start; }
+  .navigation__list {
+    width: 100%;
+    flex-direction: column;
+    display: none; }
+  .navigation__item {
+    text-align: center;
+    padding: 10px; }
+    .navigation__item:hover {
+      background-color: #a39e9e; }
+  .navigation a:hover {
+    text-decoration: none; }
+  .navigation__list.active {
+    display: flex; } }
 
 #logoimg {
   cursor: pointer;
@@ -117,9 +159,12 @@ body {
   padding: 30px; }
 
 .section__container {
-  height: 50vh;
+  flex: 0 0 350px;
+  justify-content: center;
+  margin: 3rem;
   transition: all 0.8s;
-  box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.5); }
+  box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.5);
+  height: 350px; }
   .section__container:hover {
     transform: scale(1.03, 1.03);
     box-shadow: 1.1rem 1.1rem 3rem rgba(0, 0, 0, 0.5); }
@@ -136,6 +181,12 @@ body {
   height: 100%;
   object-fit: cover;
   cursor: pointer; }
+
+.section__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 50px; }
 
 .product {
   transition: all 0.8s;

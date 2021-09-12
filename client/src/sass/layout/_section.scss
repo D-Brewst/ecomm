@@ -6,10 +6,12 @@
     }
 
     &__container{
-        height: 50vh;
+        flex: 0 0 350px;
+        justify-content: center;
+        margin: 3rem;
         transition: all 0.8s;
         box-shadow: 1rem 1rem 3rem rgba(black, .5);
-    
+        height: 350px;
         &:hover{
             transform: scale(1.03, 1.03);
             box-shadow: 1.1rem 1.1rem 3rem rgba(black, .5);
@@ -30,5 +32,12 @@
         height:100%;
         object-fit: cover;
         cursor: pointer;
+    }
+
+    &__row{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-bottom: 50px;
     }
 }

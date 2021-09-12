@@ -34,9 +34,9 @@ const Section = () => {
     }
 
     return (
-        <div className='row section'>
+        <div className='section'>
             <h1 className='section__heading'>Categories</h1>
-            <div className='row section__row'>
+            <div className='section__row'>
                 <div className='col-1-of-3 section__container' onClick={() => handleClick(categories[0]._id)}>
                     <img className='section__img' src={electronics} alt='electronics'/>
                     <h2 className='section__sub'>Electronics</h2>
