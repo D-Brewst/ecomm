@@ -278,6 +278,21 @@ body {
   .detail__btn:hover {
     transform: scale(1.03, 1.03); }
 
+@media (max-width: 768px) {
+  .detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+    .detail__productimg {
+      flex: 0 0 90%;
+      margin-left: 6rem; }
+    .detail__section {
+      flex: 0 0 90%;
+      justify-content: center;
+      margin-top: 50px; }
+  #productdiv {
+    margin: 0; } }
+
 .cart {
   text-align: center;
   position: fixed;
@@ -450,3 +465,19 @@ body {
     transition: all 0.5s; }
     .custom__btn:hover {
       transform: scale(1.03, 1.03); }
+
+.success {
+  text-align: center; }
+  .success__header {
+    font-size: 4rem;
+    padding: 30px; }
+  .success__statement {
+    padding: 30px;
+    font-size: 1.6rem; }
+  .success__img {
+    width: 350px; }
+
+.canceled {
+  text-align: center;
+  font-size: 1.6rem;
+  padding: 30px; }

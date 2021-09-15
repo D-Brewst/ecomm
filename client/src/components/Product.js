@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Link } from "react-router-dom";
 import {inCart} from "../utils/helpers";
 import {useStoreContext} from "../utils/GlobalState";
@@ -13,10 +13,10 @@ const Product = (props) => {
     const {name, price, image, _id, description, quantity, inventory} = props;
     const product = {name, price, image, _id, description, quantity, inventory};
 
-    const saveCart = (cart) => {
-        const goods = cart.length > 0 ? cart : [];
-        localStorage.setItem('cart', JSON.stringify(goods));
-    }
+    useEffect(() => {
+      const goods = cart.length > 0 ? cart : [];
+      localStorage.setItem('cart', JSON.stringify(goods));
+    }, [cart])
 
     const addToCart = () => {
         const itemInCart = cart.find((cartItem) => cartItem._id === product._id);
@@ -27,13 +27,11 @@ const Product = (props) => {
             _id: product._id,
             product: { ...itemInCart, quantity: itemInCart.quantity + 1 }
         });
-          saveCart(cart);
         } else {
           dispatch({
             type: ADD_TO_CART,
             product: { ...product, quantity: 1 },
           });
-          saveCart(cart);
         }
       };
 

@@ -2,8 +2,8 @@ import React from 'react';
 
 const Canceled = () => {
     return (
-        <div>
-            <p>Payment unsuccessful, you will be redirected to the home page.</p>
+        <div className="canceled">
+            <h4>Order Canceled, <a href="/">click here</a> to be redirected to the home page.</h4>
         </div>
     )
 }

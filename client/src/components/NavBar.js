@@ -44,7 +44,7 @@ const NavBar = () => {
                     <a href='/login'>Log In</a>
                 </li>
                 {user.token && <li className='navigation__item'>
-                    <button onClick={logOut}>Log Out</button>
+                    <a href="/" onClick={logOut}>Log Out</a>
                 </li>}   
             </ul>
             <Shoppingcart/>     

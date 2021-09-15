@@ -33,7 +33,9 @@ function Detail() {
               });
         });
     }
-  }, [products, dispatch, id]);
+    const goods = cart.length > 0 ? cart : [];
+    localStorage.setItem('cart', JSON.stringify(goods));
+  }, [products, dispatch, id, cart]);
 
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === id);
@@ -67,7 +69,7 @@ function Detail() {
     <>
       {currentProduct && cart ? (
         <div className='row detail'>
-            <div className="col-2-of-3">
+            <div className="col-2-of-3 detail__productimg">
                 <img
                     src={currentProduct.image}
                     alt={currentProduct.name}

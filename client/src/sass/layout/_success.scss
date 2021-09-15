@@ -1,0 +1,18 @@
+.success{
+    text-align:center;
+
+    &__header{
+        font-size: 4rem;
+        padding: 30px;
+    }
+
+    &__statement{
+        padding: 30px;
+        font-size: 1.6rem;
+    }
+
+    &__img{
+        width: 350px;
+    }
+
+}

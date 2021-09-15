@@ -37,3 +37,28 @@
         }
     }
 }
+
+@media (max-width:768px){
+    .detail{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        &__productimg{
+            flex: 0 0 90%;
+            margin-left: 6rem;
+        }
+
+        &__section{
+            flex: 0 0 90%;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+
+    }
+    #productdiv{
+        margin: 0;
+    }
+
+}

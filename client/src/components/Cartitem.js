@@ -19,6 +19,7 @@ const CartItem = (props) => {
     }
 
     const increaseQuantity = () => {
+        saveCart(cart);
         const itemInCart = cart.find((cartItem) => cartItem._id === product._id);
         console.log(itemInCart);
         if (itemInCart) {
@@ -28,10 +29,11 @@ const CartItem = (props) => {
                 product: { ...itemInCart, quantity: itemInCart.quantity + 1 }
             });
         }
-        saveCart(product);
+        
     };
     
     const decreaseQuantity = () => {
+        saveCart(cart)
         const itemInCart = cart.find((cartItem) => cartItem._id === product._id);
         console.log(itemInCart);
         if (itemInCart) {
@@ -41,7 +43,7 @@ const CartItem = (props) => {
                 product: { ...itemInCart, quantity: itemInCart.quantity - 1 }
             });
         }
-        saveCart(product)
+        
     };
 
     const removeFromCart = () => {
