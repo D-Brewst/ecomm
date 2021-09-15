@@ -10,10 +10,10 @@ const requireLogin = passport.authenticate("local", {session: false});
 const requireAuth = passport.authenticate("jwt", {session: false});
 
 module.exports = function(app) {
-    app.post("/login", requireLogin, Authentication.login);
-    app.post("/signup", Authentication.createNew);
+    app.post("/dologin", requireLogin, Authentication.login);
+    app.post("/dosignup", Authentication.createNew);
     app.post("/addproduct", Products.createProducts);
-    app.get("/products", Products.getProducts);
+    app.get("/getproducts", Products.getProducts);
     app.post("/addcategory", Category.addCategory);
     app.get("/categories", Category.getCategories);
     app.post("/checkout", stripeAPI.checkoutSession);

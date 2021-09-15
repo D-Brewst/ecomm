@@ -39,7 +39,7 @@ const Signup = () => {
           passwordRef.current.value
         );
         // sign up new user
-        const { data } = await axios.post("/signup", {
+        const { data } = await axios.post("/dosignup", {
           username: usernameRef.current.value,
           email: emailRef.current.value,
           password: passwordRef.current.value,

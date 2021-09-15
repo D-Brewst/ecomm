@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
     getFeatured: async () => {
         try{
-            const {data} = await axios.get("/products");
+            const {data} = await axios.get("/getproducts");
             return data;
         }
         catch (error) {

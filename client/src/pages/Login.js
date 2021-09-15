@@ -13,7 +13,7 @@ const Login = () => {
     //putting in local storage AND state
     const doLogin = async () => {
         //login user and get token back
-        const { data } = await axios.post("/login", {
+        const { data } = await axios.post("/dologin", {
             email: emailRef.current.value,
             password: passwordRef.current.value,
         });
@@ -28,7 +28,7 @@ const Login = () => {
             user: data,
         });
 
-        // redirecting user to the members page
+        // redirecting user to the products page
         const redirect = () => history.push("/products");
         redirect();
     };
