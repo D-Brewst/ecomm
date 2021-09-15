@@ -2,7 +2,7 @@ import React from 'react';
 import Shoppingcart from './Shoppingcart';
 import { useStoreContext } from '../utils/GlobalState';
 import {LOGOUT} from '../utils/actions';
-import {useHistory} from 'react-router-dom';
+import {useHistory, Link} from 'react-router-dom';
 import ecommlogo from '../assets/images/ecommlogo.png';
 
 const NavBar = () => {
@@ -35,16 +35,16 @@ const NavBar = () => {
             </div>
             <ul className='navigation__list'>
                 <li className='navigation__item'>
-                    <a href='/products'>Products</a>
+                    <Link to='/products'>Products</Link>
                 </li>
                 <li className='navigation__item'>
-                    <a href='/signup'>Sign Up</a>
+                    <Link to='/signup'>Sign Up</Link>
                 </li>
                 <li className='navigation__item'>
-                    <a href='/login'>Log In</a>
+                    <Link to='/login'>Log In</Link>
                 </li>
                 {user.token && <li className='navigation__item'>
-                    <a href="/" onClick={logOut}>Log Out</a>
+                    <Link to="/" onClick={logOut}>Log Out</Link>
                 </li>}   
             </ul>
             <Shoppingcart/>     
