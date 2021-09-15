@@ -339,6 +339,11 @@ body {
     margin-bottom: 5px;
     text-decoration: underline; }
 
+@media (max-width: 768px) {
+  .cart {
+    height: 70%;
+    width: 95%; } }
+
 .category__header {
   text-align: center; }
 
