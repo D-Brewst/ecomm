@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import {Elements} from "@stripe/react-stripe-js";
 import {loadStripe} from "@stripe/stripe-js";
 
-const stripePromise = loadStripe(process.env.REACT_APP_PUBLISHABLE_KEY)
+const stripePromise = loadStripe("pk_test_51HTKa6HduI67bVel9UErpsYWnY2EpZQeC9D64KxoDB67z9t7sKKBDlpVqUh59Cy5io912HfdEA2SO96dbMrnkSuZ00QaOZ1mrA")
 
 ReactDOM.render(
   <React.StrictMode>
