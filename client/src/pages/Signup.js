@@ -13,7 +13,7 @@ const Signup = () => {
 
     const doLogin = async () => {
         //login user and get token back
-        const { data } = await axios.post("/login", {
+        const { data } = await axios.post("/dologin", {
           email: emailRef.current.value,
           password: passwordRef.current.value,
         });
